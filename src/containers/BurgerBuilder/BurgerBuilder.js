@@ -3,7 +3,7 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummay/OrderSummary';
-import Backdrop from '../../components/UI/Backdrop/Backdrop';
+// import Backdrop from '../../components/UI/Backdrop/Backdrop';
 const INGREDIENT_PRICES = {
   lettuce: .25,
   cheese: .5,
@@ -78,7 +78,7 @@ updatePurchaseState (ingredients) {
   purchaseHandler = () => {
     this.setState({purchasing:true})
   }
-  clearBackdropHandler = () => {
+  clearModalHandler = () => {
     this.setState({purchasing:false})
   }
 
@@ -91,8 +91,8 @@ updatePurchaseState (ingredients) {
     }
     return (
       <React.Fragment>
-        <Backdrop clearBackdrop={this.clearBackdropHandler} show={this.state.purchasing}/>
-        <Modal show={this.state.purchasing}>
+        {/* <Backdrop clearBackdrop={this.clearBackdropHandler} show={this.state.purchasing}/> */}
+        <Modal show={this.state.purchasing} clearModal={this.clearModalHandler}>
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
