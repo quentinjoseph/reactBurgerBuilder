@@ -15,7 +15,7 @@ const burger = (props) => {
   return (
     <div className={cssClasses.Burger}>
       <BurgerIngredients type="bread-top" />
-        {console.log(transformedIngredients)}
+        {/* {console.log(transformedIngredients)} */}
         {transformedIngredients}
       <BurgerIngredients type="bread-bottom" />
     </div>
