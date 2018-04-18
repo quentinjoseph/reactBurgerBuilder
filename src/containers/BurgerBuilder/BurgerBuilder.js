@@ -78,8 +78,12 @@ updatePurchaseState (ingredients) {
   purchaseHandler = () => {
     this.setState({purchasing:true})
   }
-  clearModalHandler = () => {
+  purchaseCancelHandler = () => {
     this.setState({purchasing:false})
+  }
+  
+  purchaseContinuelHandler = () => {
+    alert('You owe $' + this.state.totalPrice);
   }
 
   render (){
@@ -92,8 +96,8 @@ updatePurchaseState (ingredients) {
     return (
       <React.Fragment>
         {/* <Backdrop clearBackdrop={this.clearBackdropHandler} show={this.state.purchasing}/> */}
-        <Modal show={this.state.purchasing} clearModal={this.clearModalHandler}>
-          <OrderSummary ingredients={this.state.ingredients} />
+        <Modal show={this.state.purchasing} closeModal={this.purchaseCancelHandler}>
+          <OrderSummary purchaseContinue={this.purchaseContinuelHandler} purchaseCancelled={this.purchaseCancelHandler} ingredients={this.state.ingredients} totalPrice={this.state.totalPrice} />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls 
